@@ -2,12 +2,14 @@ proftpd:
   build: .
   volumes:
     - ./proftpd.conf:/usr/local/etc/proftpd.conf
-    - ./data:/data
+    - ./data/ftp:/data
+    - ./data/ssh:/etc/ssh
   links:
     - mysql
   ports:
-    - "21:21"
     - "20:20"
+    - "21:21"
+    - "22:22"
     - "60000-60100:60000-60100"
 mysql:
   image: mariadb
