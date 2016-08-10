@@ -1,0 +1,18 @@
+proftpd:
+  build: .
+  volumes:
+    - ./proftpd.conf:/usr/local/etc/proftpd.conf
+    - ./data:/data
+  links:
+    - mysql
+  ports:
+    - "21:21"
+    - "20:20"
+    - "60000-60100:60000-60100"
+mysql:
+  image: mariadb
+  ports:
+    - 3306:3306
+  environment:
+    - MYSQL_ROOT_PASSWORD=password
+    - MYSQL_DATABASE=proftpd
