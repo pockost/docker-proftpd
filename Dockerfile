@@ -26,7 +26,7 @@ RUN set -x \
 RUN set -x \
     && cd /usr/local/proftpd \
     && sed -i 's/__mempcpy/mempcpy/g' lib/pr_fnmatch.c \
-    && ./configure --with-modules=mod_sql:mod_sql_mysql --with-includes=/usr/include/mysql/ \
+    && ./configure --with-modules=mod_sql:mod_sql_mysql:mod_quotatab:mod_quotatab_sql:mod_sftp:mod_sftp_sql --with-includes=/usr/include/mysql/ \
     && make
 RUN cd /usr/local/proftpd && make install
 

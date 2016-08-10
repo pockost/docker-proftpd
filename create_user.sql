@@ -1,24 +1,15 @@
+use proftpd;
 INSERT INTO `users` (
    `userid`,
    `passwd`,
    `uid`,
    `gid`,
    `homedir`,
-   `shell`,
-   `count`,
-   `accessed` ,
-   `modified`,
-   `LoginAllowed`
 ) VALUES (
-   'test',
-   ENCRYPT('pwd'),
-   '5500',
-   '5500',
-   '/home/ftp/test',
-   '/bin/false',
-   '',
-   '',
-   '',
-   'true'
+   'test', -- USERNAME
+   ENCRYPT('pwd'), -- PASSWORD
+   '5500', -- UID
+   '5500', -- GID
+   '/home/ftp/test', -- HOME
 );
 
