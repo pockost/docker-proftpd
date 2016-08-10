@@ -4,12 +4,12 @@ INSERT INTO `users` (
    `passwd`,
    `uid`,
    `gid`,
-   `homedir`,
+   `homedir`
 ) VALUES (
    'test', -- USERNAME
    ENCRYPT('pwd'), -- PASSWORD
    '5500', -- UID
    '5500', -- GID
-   '/home/ftp/test', -- HOME
+   '/data' -- HOME
 );
 

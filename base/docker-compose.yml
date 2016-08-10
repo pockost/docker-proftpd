@@ -1,0 +1,9 @@
+proftpd:
+  build: .
+  volumes:
+    - ./proftpd.conf:/usr/local/etc/proftpd.conf
+    - ./data/ftp:/data
+  ports:
+    - "20:20"
+    - "21:21"
+    - "60000-60100:60000-60100"
