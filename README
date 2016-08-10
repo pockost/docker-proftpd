@@ -1,10 +1,10 @@
-= docker-proftpd =
+# docker-proftpd
 
 A proftpd docker container with mysql, quota and sftp modules based on alpine.
 
-== Usage ==
+## Usage
 
-=== without compilation ===
+### without compilation
 
 Create a docker-compose.yml in root project folder. Fill free to change mysql credentials.
 
@@ -41,12 +41,12 @@ $ cat create_table.sql | mysql --protocol=tcp -hlocalhost -uroot -p
 
 Add some user. You can find exemple in sftp/create_user.sql file
 
-=== with compilation ===
+### with compilation
 cd sftp
 docker-compose build
 docker-compose up -d
-cat create_table.sql | mysql --protocol=tcp -hlocalhost -uroot -p 
+cat create_table.sql | mysql --protocol=tcp -hlocalhost -uroot -p
 
-== Note ==
+## Note
 
 You can find container with only quota or mysql,quota image in quota or mysql folder.
