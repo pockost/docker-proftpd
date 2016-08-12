@@ -36,10 +36,10 @@ Get a proftpd configuration file (like this one : https://raw.githubusercontent.
 Create proftpd database.
 
 ```
-$ cat create_table.sql | mysql --protocol=tcp -hlocalhost -uroot -p
+$ curl -sL https://raw.githubusercontent.com/pockost/docker-proftpd/master/sftp/create_table.sql | mysql --protocol=tcp -hlocalhost -uroot -p
 ```
 
-Add some user. You can find exemple in sftp/create_user.sql file
+Add some user. You can find exemple in here : https://github.com/pockost/docker-proftpd/blob/master/sftp/create_user.sql
 
 ### with compilation
 cd sftp
