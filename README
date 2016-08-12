@@ -31,7 +31,7 @@ mysql:
     - MYSQL_DATABASE=proftpd
 ```
 
-Get a proftpd configuration file (like this one : sftp/proftpd.conf) and run the containers.
+Get a proftpd configuration file (like this one : https://raw.githubusercontent.com/pockost/docker-proftpd/master/sftp/proftpd.conf) and run the containers.
 
 Create proftpd database.
 
