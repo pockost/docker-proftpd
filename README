@@ -44,7 +44,7 @@ $ docker-compose up -d mysql
 $ curl -sL https://raw.githubusercontent.com/pockost/docker-proftpd/master/sftp/create_table.sql | mysql --protocol=tcp -hlocalhost -uroot -p
 $ ssh-keygen -f ./data/ssh/ssh_host_rsa_key -N '' -t rsa
 $ ssh-keygen -f ./data/ssh/ssh_host_dsa_key -N '' -t dsa
-$ docker-compse up -d proftpd
+$ docker-compose up -d proftpd
 ```
 
 Add some user. You can find exemple in here : https://github.com/pockost/docker-proftpd/blob/master/sftp/create_user.sql
