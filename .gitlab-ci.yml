@@ -34,5 +34,5 @@ build:base:
     - .build
     - .only-tag
   variables:
-    - CONTEXT: "base/"
+    CONTEXT: "base/"
 
