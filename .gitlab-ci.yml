@@ -22,7 +22,7 @@ variables:
     - mkdir -p /kaniko/.docker ~/.docker/
     - test -f ~/.docker/config.json || echo '{}' > ~/.docker/config.json
     - cat ~/.docker/config.json | /bin/jq  ".auths |= . + {\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}" > /kaniko/.docker/config.json
-    - cat ~/.docker/config.json | /bin/jq  ".auths |= . + {\"https://index.docker.io/v2/\":{\"username\":\"${DOCKER_HUB_REGISTRY_USER}\",\"password\":\"${DOCKER_HUB_REGISTRY_PASSWORD}\"}}" > /kaniko/.docker/config.json
+    - cat ~/.docker/config.json | /bin/jq  ".auths |= . + {\"index.docker.io\":{\"username\":\"${DOCKER_HUB_REGISTRY_USER}\",\"password\":\"${DOCKER_HUB_REGISTRY_PASSWORD}\"}}" > /kaniko/.docker/config.json
   script:
     - /kaniko/executor
       --context ${CONTEXT}
