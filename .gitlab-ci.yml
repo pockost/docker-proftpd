@@ -21,12 +21,12 @@ variables:
     - chmod +x /bin/jq
     - mkdir -p /kaniko/.docker ~/.docker/
     - test -f ~/.docker/config.json || echo '{}' > ~/.docker/config.json
-    - cat ~/.docker/config.json | /bin/jq  ".auths |= . + {\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}" > /kaniko/.docker/config.json
-    - cat ~/.docker/config.json | /bin/jq  ".auths |= . + {\"index.docker.io\":{\"username\":\"${DOCKER_HUB_REGISTRY_USER}\",\"password\":\"${DOCKER_HUB_REGISTRY_PASSWORD}\"}}" > /kaniko/.docker/config.json
-    - cat ~/.docker/config.json
-    - cat ~/.docker/config.json | /bin/jq  ".auths |= . + {\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}" > /kaniko/.docker/config.json.tmp
-    - cat ~/.docker/config.json.tmp | /bin/jq  ".auths |= . + {\"index.docker.io\":{\"username\":\"${DOCKER_HUB_REGISTRY_USER}\",\"password\":\"${DOCKER_HUB_REGISTRY_PASSWORD}\"}}" > /kaniko/.docker/config
-    - cat ~/.docker/config.json
+    - cat ~/.docker/config.json | /bin/jq  ".auths |= . + {\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}" > ~/.docker/config.json.tmp
+    - mv ~/.docker/config.json.tmp ~/.docker/config.json
+    - cat ~/.docker/config.json | /bin/jq  ".auths |= . + {\"index.docker.io\":{\"username\":\"${DOCKER_HUB_REGISTRY_USER}\",\"password\":\"${DOCKER_HUB_REGISTRY_PASSWORD}\"}}" > ~/.docker/config.json
+    - mv ~/.docker/config.json.tmp ~/.docker/config.json
+    - mv ~/.docker/config.json /kaniko/.docker/config.json
+    - cat /kaniko/.docker/config.json
   script:
     - /kaniko/executor
       --context ${CONTEXT}
