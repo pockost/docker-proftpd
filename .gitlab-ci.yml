@@ -23,7 +23,7 @@ variables:
     - test -f ~/.docker/config.json || echo '{}' > ~/.docker/config.json
     - cat ~/.docker/config.json | /bin/jq  ".auths |= . + {\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}" > ~/.docker/config.json.tmp
     - mv ~/.docker/config.json.tmp ~/.docker/config.json
-    - cat ~/.docker/config.json | /bin/jq  ".auths |= . + {\"index.docker.io\":{\"username\":\"${DOCKER_HUB_REGISTRY_USER}\",\"password\":\"${DOCKER_HUB_REGISTRY_PASSWORD}\"}}" > ~/.docker/config.json.tmp
+    - cat ~/.docker/config.json | /bin/jq  ".auths |= . + {\"https://index.docker.io/v1/\":{\"auth\":\"$( echo -n "${DOCKER_HUB_REGISTRY_USER}:${DOCKER_HUB_REGISTRY_PASSWORD}" | base64 )\"}}" > ~/.docker/config.json.tmp
     - mv ~/.docker/config.json.tmp ~/.docker/config.json
     - mv ~/.docker/config.json /kaniko/.docker/config.json
     - cat /kaniko/.docker/config.json
