@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.20
 
 ENV PROFTPD_VERSION 1.3.8b
 

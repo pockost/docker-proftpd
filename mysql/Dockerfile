@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.20
 
 ENV PROFTPD_VERSION 1.3.8b
 
@@ -11,10 +11,10 @@ ENV PROFTPD_DEPS \
   mariadb-dev
 
 RUN set -x \
-    && apk add --no-cache --virtual .persistent-deps \
+    && apk add --no-cache \
         ca-certificates \
         curl \
-        mariadb-client-libs \
+        mariadb-client \
     && apk add --no-cache --virtual .build-deps \
         $PROFTPD_DEPS \
     && curl -fSL ftp://ftp.proftpd.org/distrib/source/proftpd-${PROFTPD_VERSION}.tar.gz -o proftpd.tgz \
