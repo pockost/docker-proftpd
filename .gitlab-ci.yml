@@ -48,6 +48,7 @@ build:sftp:
     - .only-tag
   variables:
     CONTEXT: "sftp/"
+    TAG_SUFFIX: "sftp-"
 
 build:quota:
   extends:
@@ -55,6 +56,7 @@ build:quota:
     - .only-tag
   variables:
     CONTEXT: "quota/"
+    TAG_SUFFIX: "quota-"
 
 build:mysql:
   extends:
@@ -62,4 +64,5 @@ build:mysql:
     - .only-tag
   variables:
     CONTEXT: "mysql/"
+    TAG_SUFFIX: "mysql-"
 
