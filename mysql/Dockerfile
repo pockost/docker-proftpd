@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-ENV PROFTPD_VERSION 1.3.6rc2
+ENV PROFTPD_VERSION 1.3.8b
 
 # persistent / runtime deps
 ENV PROFTPD_DEPS \
@@ -24,7 +24,6 @@ RUN set -x \
     && mv proftpd-${PROFTPD_VERSION} /usr/local/proftpd \
     && sleep 1 \
     && cd /usr/local/proftpd \
-    && sed -i 's/__mempcpy/mempcpy/g' lib/pr_fnmatch.c \
     && ./configure --with-modules=mod_sql:mod_sql_mysql:mod_quotatab:mod_quotatab_sql --with-includes=/usr/include/mysql/ \
     && make \
     && cd /usr/local/proftpd && make install \
