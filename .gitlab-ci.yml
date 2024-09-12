@@ -42,3 +42,24 @@ build:base:
   variables:
     CONTEXT: "base/"
 
+build:sftp:
+  extends:
+    - .build
+    - .only-tag
+  variables:
+    CONTEXT: "sftp/"
+
+build:quota:
+  extends:
+    - .build
+    - .only-tag
+  variables:
+    CONTEXT: "quota/"
+
+build:mysql:
+  extends:
+    - .build
+    - .only-tag
+  variables:
+    CONTEXT: "mysql/"
+
